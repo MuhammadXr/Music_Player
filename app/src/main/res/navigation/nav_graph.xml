@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.gita.music_player_xr.presentation.screens.splash.SplashScreen"
+        android:label="SplashScreen"
+        tools:layout="@layout/screen_splash"
+        >
+        <action
+            android:id="@+id/action_splashScreen_to_songsPage"
+            app:destination="@id/songsPage"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/musicDetailScreen"
+        android:name="uz.gita.music_player_xr.presentation.screens.playing.MusicDetailScreen"
+        android:label="MusicDetailScreen"
+        tools:layout="@layout/screen_music_detail"
+        />
+    <fragment
+        android:id="@+id/songsPage"
+        android:name="uz.gita.music_player_xr.presentation.screens.songs.SongsPage"
+        android:label="SongsPage"
+        tools:layout="@layout/page_songs">
+        <action
+            android:id="@+id/action_songsPage_to_musicDetailScreen"
+            app:destination="@id/musicDetailScreen" />
+    </fragment>
+
+</navigation>

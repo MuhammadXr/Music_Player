@@ -1,0 +1,32 @@
+package uz.gita.music_player_xr.broadcast
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import uz.gita.music_player_xr.service.State
+import uz.gita.music_player_xr.utils.MusicPlaying
+
+// Created by Jamshid Isoqov an 10/19/2022
+class MusicBroadcast : BroadcastReceiver() {
+
+    override fun onReceive(context: Context?, intent: Intent?) {
+
+        when (intent?.action) {
+            State.PLAY.name -> {
+                if (MusicPlaying.mediaPlayer?.isPlaying!!) {
+                    MusicPlaying.pauseMusic()
+                    MusicPlaying.playingObserver.value = false
+                } else {
+                    MusicPlaying.startMusic()
+                    MusicPlaying.playingObserver.value = true
+                }
+            }
+            State.NEXT.name -> {
+                MusicPlaying.clickMusic(MusicPlaying.positionMusic + 1)
+            }
+            State.PREVIOUS.name -> {
+                MusicPlaying.clickMusic(MusicPlaying.positionMusic - 1)
+            }
+        }
+    }
+}

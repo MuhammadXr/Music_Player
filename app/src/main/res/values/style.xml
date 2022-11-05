@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeImageView" >
+        <item name="cornerSize" >
+            20%
+        </item>
+    </style>
+
+    <style name="ShapeImageDetail" >
+        <item name="cornerSize" >
+            12%
+        </item>
+    </style>
+
+    <style name="ShapeImageArtist" >
+        <item name="cornerSize" >
+            50%
+        </item>
+    </style>
+</resources>
